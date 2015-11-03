@@ -21,6 +21,8 @@ Some style guides require JSDoc comments for all functions as a way of explainin
 This rule generates warnings for nodes that do not have JSDoc comments when they should. Supported nodes:
 
 * `FunctionDeclaration`
+* `ClassDeclaration`
+* `MethodDefinition`
 
 The following patterns are considered problems:
 
@@ -29,6 +31,10 @@ The following patterns are considered problems:
 
 function foo() {       /*error Missing JSDoc comment.*/
     return 10;
+}
+
+class Test{            /*error Missing JSDoc comment.*/
+    getDate(){}        /*error Missing JSDoc comment.*/
 }
 ```
 
@@ -55,6 +61,16 @@ var array = [1,2,3];
 array.filter(function(item) {
     return item > 2;
 });
+
+/**
+* It returns 10
+*/
+class Test{
+    /**
+    * returns the date
+    */
+    getDate(){}
+}
 ```
 
 ## When not to use
